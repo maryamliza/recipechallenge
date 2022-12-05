@@ -11,7 +11,7 @@ import com.mliza.recipeapp.databinding.ItemRecipeBinding
 
 class HomeAdapter(
     private val objList: List<Recipe>,
-    private val navController: NavController
+    private val onItemClicked: (Recipe) -> Unit
 ) : RecyclerView.Adapter<HomeAdapter.ViewHolder>() {
 
     class ViewHolder(val binding: ItemRecipeBinding) : RecyclerView.ViewHolder(binding.root)
@@ -32,19 +32,11 @@ class HomeAdapter(
             .into(binding.ivImage)
 
         binding.container.setOnClickListener {
-            openDetail(navController = navController, id = obj.id)
+            onItemClicked(obj)
         }
     }
 
     override fun getItemCount(): Int {
         return objList.size
-    }
-
-    fun openDetail(navController: NavController, id: String) {
-        navController.navigate(
-            com.mliza.recipeapp.ui.homeScreen.HomeFragmentDirections.actionHomeFragmentToDetailFragment(
-                id
-            )
-        )
     }
 }

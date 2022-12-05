@@ -11,6 +11,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.mliza.recipeapp.R
+import com.mliza.recipeapp.data.models.Recipe
 import com.mliza.recipeapp.databinding.FragmentHomeBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -38,12 +39,17 @@ class HomeFragment : Fragment() {
             binding.ivNoInternet.isVisible = false
             binding.rcRecipe.isVisible = true
             binding.swiperefresh.isRefreshing = false
-            binding.rcRecipe.adapter = HomeAdapter(it, findNavController())
+            binding.rcRecipe.adapter = HomeAdapter(it, ::openRecipeDetail)
         })
-//        viewModel.error.observe(viewLifecycleOwner, Observer {
-//            binding.swiperefresh.isRefreshing = false
-//            showNetworkError()
-//        })
+        viewModel.error.observe(viewLifecycleOwner, Observer {
+            binding.swiperefresh.isRefreshing = false
+            showNetworkError()
+        })
+    }
+
+    private fun openRecipeDetail(recipe: Recipe) {
+        val action = HomeFragmentDirections.actionHomeFragmentToDetailFragment(recipe.id)
+        findNavController().navigate(action)
     }
 
     private fun showNetworkError() {

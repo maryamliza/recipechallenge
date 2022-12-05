@@ -1,5 +1,6 @@
 package com.mliza.recipeapp.ui.homeScreen
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -12,9 +13,11 @@ class HomeViewModel(
     private val repository: RecipesRepository
 ) : ViewModel() {
 
+    private val _error: MutableLiveData<String> = MutableLiveData()
     private val listRecipes: MutableLiveData<List<Recipe>> = MutableLiveData()
     private val keyword: MutableLiveData<String> = MutableLiveData()
 
+    val error: LiveData<String> = _error
     val listRecipesFiltered = listRecipes.combineWith(keyword) { list, key ->
         if (key == null) return@combineWith list.orEmpty()
         list?.filter {
@@ -33,7 +36,7 @@ class HomeViewModel(
             listRecipes.value = repository.getRecipes()
         } catch (e: Exception) {
             e.printStackTrace()
-//            error.value = e.localizedMessage
+            _error.value = e.localizedMessage
         }
     }
 }

@@ -59,9 +59,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:alpha="0.8"
-                android:visibility="gone"
                 android:paddingHorizontal="@dimen/size_large"
-                android:src="@drawable/no_internet" />
+                android:src="@drawable/no_internet"
+                android:visibility="gone" />
         </FrameLayout>
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
