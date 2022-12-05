@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">RecipeApp</string>
+    <string name="hello_blank_fragment">Hola fragment vacío</string>
+    <string name="loading">Cargando...</string>
+    <string name="preparation">Preparación</string>
+    <string name="ingredients">Ingredientes</string>
+    <string name="description">Descripción</string>
+    <string name="go_to_origin">Ir al origen</string>
+    <string name="search">Buscar</string>
+    <string name="no_internet_title">Oops! Sin internet</string>
+    <string name="no_internet_message">Por favor, revisa tu conexión</string>
+    <string name="ok">Ok</string>
+</resources>
