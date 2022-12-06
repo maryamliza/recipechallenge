@@ -3,6 +3,9 @@
 
 Es una aplicación en la cual podrás encontrar recetas y el detalle de ellas para prepararlas.
 
+## Release v1
+Pueden encontrar la version 1 del apk aqui:
+https://github.com/maryamliza/recipechallenge/releases/tag/v1
 
 
 ## Tecnologías usadas:
