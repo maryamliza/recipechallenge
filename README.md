@@ -17,8 +17,6 @@ Es una aplicación en la cual podrás encontrar recetas y el detalle de ellas pa
 - Glide
 - Maps SDK
 - Mockk
-- Analytics *
-- Crashlytics *
 
 ## Pantallas:
 | HomeFragment | DetailFragment | MapFragment |
